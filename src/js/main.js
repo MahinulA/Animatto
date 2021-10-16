@@ -1,34 +1,71 @@
-let textFadeIn =(()=>{
-    let functionAnimationReset = (ClassName, timeoutSec)=>{
+let universalFunctions =(()=>{
+    let functionAnimationReset = (CN, TO)=>{
         setTimeout(()=>{
-            ClassName.style.animation ="";
-        }, timeoutSec);
+            CN.style.animation ="";
+        }, TO);
     }
 
+    return {
+        timeOutF : function(ClassName, timeoutS){
+            return functionAnimationReset(ClassName, timeoutS);
+        }
+    }
+})();
+
+
+
+
+
+let textFadeIn =((universalFunctions)=>{
     let fadeInFunction =(selection)=>{
-        var aniDelayCounter = 0.4;
+        var aniDelayCounter = 0.2;
         let fadeInClassInit= document.querySelectorAll(".fadeIn");
-        // console.log(fadeInClassInit);
         for(i =0; i < fadeInClassInit.length; i++){
             let fadeInClass = fadeInClassInit[i];
-            
-            //all the class selected
-            //after the animation ends increment the delay by 0.2
-            console.log(fadeInClassInit.length);
-                //just testing the animation
-                console.log("animation clicked");
-                selection.style.animation ="fadeIn " + aniDelayCounter + "s linear";
-                functionAnimationReset(fadeInClass, 800);
-                if(aniDelayCounter >= 0.7){
-                    aniDelayCounter = 0.4;
-                }else{
-                    aniDelayCounter = aniDelayCounter + 0.1;
-                }   
+            selection.style.animation ="fadeIn " + aniDelayCounter + "s linear";
+            universalFunctions.timeOutF(fadeInClass, 800);
+            if(aniDelayCounter >= 0.7){
+                aniDelayCounter = 0.4;
+            }else{
+                aniDelayCounter = aniDelayCounter + 0.1;
+            }   
         }
     }
     return {
         k : function(eventTarget){
             return fadeInFunction(eventTarget);
+        }
+    }
+})(universalFunctions);
+
+
+
+
+
+
+let textFadeOut = (()=>{
+
+    let fadeOutFunction =(selection)=>{
+        var aniDelayCounter = 0.4;
+        let fadeOutClassInit= document.querySelectorAll(".fadeOut");
+        for(i =0; i < fadeOutClassInit.length; i++){
+            let fadeOutClass = fadeOutClassInit[i];
+            selection.style.animation ="fadeOut " + aniDelayCounter + "s linear";
+            selection.style.opacity="0";
+            setTimeout(()=>{
+                selection.style.display="none";
+            }, 1000)
+            universalFunctions.timeOutF(fadeOutClass, 800);
+            if(aniDelayCounter >= 0.7){
+                aniDelayCounter = 0.4;
+            }else{
+                aniDelayCounter = aniDelayCounter + 0.1;
+            }
+        }
+    }
+    return {
+        fadeOutM : function(eventTarget){
+            return fadeOutFunction(eventTarget);
         }
     }
 })();
@@ -38,8 +75,8 @@ let textFadeIn =(()=>{
 
 
 // ======================
-// ANIMATION TIMING FUNCTION
-let animationTrigger = ((textFadeIn,)=>{
+// ANIMATION TRIGGERING
+let animationTrigger = ((textFadeIn, textFadeOut)=>{
     let clickInit = document.querySelectorAll(".clickEvent");
     for(i = 0; i < clickInit.length; i++){
         let click = clickInit[i];
@@ -48,8 +85,9 @@ let animationTrigger = ((textFadeIn,)=>{
             // add the animation depending on the class
             let classChecker= event.target.classList;
             if(classChecker.contains("fadeIn")){
-                // textFadeIn.k();
                 textFadeIn.k(event.target);
+            }else if(classChecker.contains("fadeOut")){
+                textFadeOut.fadeOutM(event.target);
             }
         });
     }
@@ -60,4 +98,4 @@ let animationTrigger = ((textFadeIn,)=>{
             // add the animation depending on the class
         });
     }
-})(textFadeIn);
+})(textFadeIn, textFadeOut);
