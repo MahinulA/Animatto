@@ -44,7 +44,6 @@ let textFadeIn =((universalFunctions)=>{
 
 
 let textFadeOut = (()=>{
-
     let fadeOutFunction =(selection)=>{
         var aniDelayCounter = 0.4;
         let fadeOutClassInit= document.querySelectorAll(".fadeOut");
@@ -77,6 +76,7 @@ let textFadeOut = (()=>{
 // ======================
 // ANIMATION TRIGGERING
 let animationTrigger = ((textFadeIn, textFadeOut)=>{
+    // CLICK EVENT
     let clickInit = document.querySelectorAll(".clickEvent");
     for(i = 0; i < clickInit.length; i++){
         let click = clickInit[i];
@@ -91,11 +91,40 @@ let animationTrigger = ((textFadeIn, textFadeOut)=>{
             }
         });
     }
+
+
+    // ONLOAD EVENT
     let OnloadEvent = document.querySelectorAll(".Onload-e");
     for(i = 0; i < OnloadEvent.length; i++){
-        let On_load = clickInit[i];
-        On_load.addEventListener("load", ()=>{
+        let On_load = OnloadEvent[i];
+
+        window.addEventListener("load", ()=>{
+            console.log("load done");
+            
             // add the animation depending on the class
+            let classChecker= On_load.classList;
+            console.log(classChecker);
+            if(classChecker.contains("fadeIn")){
+                textFadeIn.k(On_load);
+            }else if(classChecker.contains("fadeOut")){
+                textFadeOut.fadeOutM(On_load);
+            }
+        });
+    }
+
+
+    //ONSCROLL EVENT
+    let OnScrollInit = document.querySelectorAll(".OnScroll");
+    for(i = 0; i < OnScrollInit.length; i++){
+        let Onscroll = OnScrollInit[i];
+        Onscroll.addEventListener("scroll", ()=>{
+            console.log("scrolled");
+            let classChecker= Onscroll.classList;
+            if(classChecker.contains("fadeIn")){
+                textFadeIn.k(Onscroll);
+            }else if(classChecker.contains("fadeOut")){
+                textFadeOut.fadeOutM(Onscroll);
+            }
         });
     }
 })(textFadeIn, textFadeOut);
