@@ -1,13 +1,13 @@
 let universalFunctions =(()=>{
-    let functionAnimationReset = (CN, TO)=>{
+    let functionAnimationReset = (elementSelect, timer)=>{
         setTimeout(()=>{
-            CN.style.animation ="";
-        }, TO);
+            elementSelect.style.animation ="";
+        }, timer);
     }
 
     return {
-        timeOutF : function(ClassName, timeoutS){
-            return functionAnimationReset(ClassName, timeoutS);
+        timeOutF : function(ClassName, timeout){
+            return functionAnimationReset(ClassName, timeout);
         }
     }
 })();
@@ -15,13 +15,15 @@ let universalFunctions =(()=>{
 
 
 
-
+//FADEIN ANIMATION CONDITIONS:
+//ELEMENTS NEEDS TO BE HIDDEN FIRST
+//THEN MAKE IT VISIBLE
 let textFadeIn =((universalFunctions)=>{
-    let fadeInFunction =(selection)=>{
-        var aniDelayCounter = 0.2;
+    let fadeInFunction =(selection)=>{  //FADEIN FUNCTION
+        var aniDelayCounter = 0.2;      //SETTING ANIMATION DELAY
         let fadeInClassInit= document.querySelectorAll(".fadeIn");
-        for(i =0; i < fadeInClassInit.length; i++){
-            let fadeInClass = fadeInClassInit[i];
+        for(counter =0; i < fadeInClassInit.length; counter++){
+            let fadeInClass = fadeInClassInit[counter];
             selection.style.animation ="fadeIn " + aniDelayCounter + "s linear";
             universalFunctions.timeOutF(fadeInClass, 800);
             if(aniDelayCounter >= 0.7){

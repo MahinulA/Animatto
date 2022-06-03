@@ -1,0 +1,49 @@
+// ======================
+// RESPONSIVE MEDIA QUERIES
+// ==========================
+// rem RESPONSIVE and Universal Padding
+@include responsiveM(1600px){
+    html{
+        font-size:14px;
+    }
+    body{
+        padding: 0 106px;
+    }
+}
+@include responsiveM(1500px){
+    html{
+        font-size:12px;
+    }
+    body{
+        padding: 0 95px;
+    }
+}
+@include responsiveM(1300px){
+    html{
+        font-size:10px;
+    }
+    body{
+        padding: 0 80px;
+    }
+}
+@include responsiveM(1100px){
+    body{
+        padding: 0 50px;
+    }
+}
+@include responsiveM(700px){
+    html{
+        font-size:8px;
+    }
+    body{
+        padding: 0 30px;
+    }
+}
+@include responsiveM(500px){
+    html{
+        font-size:6px;
+    }
+    body{
+        padding: 0 17px;
+    }
+}
