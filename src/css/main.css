@@ -5,7 +5,14 @@
 }
 /* ==================== */
 /* text fadein Class "fadeIn" */
-
+.fadeIn{
+    opacity: 0;
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+    -moz-transition: opacity 2s;
+    -ms-transition: opacity 2s;
+    -o-transition: opacity 2s;
+}
 /* ========================== */
 /* animation event class the gets triggered by click "clickEvent" */
 
@@ -19,4 +26,54 @@
 
 
 
-@import url("./keyframes.css");
+
+
+
+
+
+
+
+
+
+/* ======================== */
+/* fadein Animation keyframes */
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(100%);
+        -webkit-transform: translateY(100%);
+        -moz-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+        -o-transform: translateY(100%);
+}to{
+        opacity: 1;
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+        -moz-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+        -o-transform: translateY(0%);
+    }
+}
+
+
+
+
+/* ======================== */
+/* fadeout Animation keyframes */
+@keyframes fadeOut {
+    from{
+        opacity: 1;
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+        -moz-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+        -o-transform: translateY(0%);
+}to{
+        opacity: 0;
+        transform: translateY(50%);
+        -webkit-transform: translateY(50%);
+        -moz-transform: translateY(50%);
+        -ms-transform: translateY(50%);
+        -o-transform: translateY(50%);
+}
+}
