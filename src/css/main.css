@@ -5,7 +5,7 @@
 }
 /* ==================== */
 /* text fadein Class "fadeIn" */
-.fadeIn{
+.animatto-fadeIn{
     opacity: 0;
     transition: opacity 2s;
     -webkit-transition: opacity 2s;
@@ -13,11 +13,32 @@
     -ms-transition: opacity 2s;
     -o-transition: opacity 2s;
 }
-/* ========================== */
-/* animation event class the gets triggered by click "clickEvent" */
 
-/* ========================== */
-/* animation event class that triggers on website laod "Onload-e" */
+
+/* ==================== */
+/* text fadein Class "fadeOut" animations */
+.animatto-fadeOut{
+    opacity: 1;
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+    -moz-transition: opacity 2s;
+    -ms-transition: opacity 2s;
+    -o-transition: opacity 2s;
+}
+
+
+/* ==================== */
+/* text fadein Class "slide-FadeIn" animations */
+.animatto-slide-fadeIn{
+    opacity: 1;
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+    -moz-transition: opacity 2s;
+    -ms-transition: opacity 2s;
+    -o-transition: opacity 2s;
+}
+
+
 
 
 

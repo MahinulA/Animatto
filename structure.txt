@@ -1,0 +1,17 @@
+Name of the Library : < Animatto.js >
+
+#### The Basic structure in detail is here:
+===========================================
+
+## There will be < two > type of Animation Class
+                1. Animation name Class (example: "fadeIn", "fadeOut")
+                2. Event Type name class (example: "Onloadevent", "Onscroll")
+
+
+## Animation Name class
+    >> Each animation class will have 
+            @ DOM Manipulations
+            @ CSS class Manipulations
+
+## Event Type name class 
+    >> Will only have DOM Manipulations
