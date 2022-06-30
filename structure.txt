@@ -6,6 +6,7 @@ Name of the Library : < Animatto.js >
 ## There will be < two > type of Animation Class
                 1. Animation name Class (example: "fadeIn", "fadeOut")
                 2. Event Type name class (example: "Onloadevent", "Onscroll")
+                3. Animation timer which will be extracted from HTML class name
 
 
 ## Animation Name class
@@ -15,3 +16,24 @@ Name of the Library : < Animatto.js >
 
 ## Event Type name class 
     >> Will only have DOM Manipulations
+
+
+
+## JavaScript structure
+    -> Select all the class at the begining and store it in a variable 
+    -> Based on if else statement select timer
+    -> Based on if else statement select event type
+    -> Set up some by default value with if else statement
+    ->
+    ->
+    ->
+    ->
+
+
+## JavaScript Event type
+    => load (className: Onload)
+    => hover (className: Onhover)
+    => Click (className: Onload)
+    => load (className: Onload)
+    => load (className: Onload)
+    => load (className: Onload)
