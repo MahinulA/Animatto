@@ -1,36 +1,34 @@
+/* fade in animation class : "animatto-fadeIn" */
+
+
+
 *{
     margin:0;
     padding: 0;
     box-sizing: border-box;
 }
-/* ==================== */
-/* text fadein Class "fadeIn" */
-.animatto-fadeIn{
-    opacity: 0;
-    transition: opacity 2s;
-    -webkit-transition: opacity 2s;
-    -moz-transition: opacity 2s;
-    -ms-transition: opacity 2s;
-    -o-transition: opacity 2s;
+
+/* some reuseable toggle classes for javascript DOM manipulation */
+.animatto-display-none{
+    display: none;
 }
+.animatto-display-block{
+    display:block;
+}
+
 
 
 /* ==================== */
 /* text fadein Class "fadeOut" animations */
 .animatto-fadeOut{
-    opacity: 1;
-    transition: opacity 2s;
-    -webkit-transition: opacity 2s;
-    -moz-transition: opacity 2s;
-    -ms-transition: opacity 2s;
-    -o-transition: opacity 2s;
+    opacity: 0;
 }
 
 
 /* ==================== */
 /* text fadein Class "slide-FadeIn" animations */
 .animatto-slide-fadeIn{
-    position: relative;
+    /* position: relative;
     opacity: 0;
     transition: all 1s;
     -webkit-transition: all 1s;
@@ -42,7 +40,7 @@
     -webkit-transform: translateX(-20%);
     -moz-transform: translateX(-20%);
     -ms-transform: translateX(-20%);
-    -o-transform: translateX(-20%);
+    -o-transform: translateX(-20%); */
 }
 
 
@@ -69,3 +67,38 @@
 
 
 
+@keyframes animatto-fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes animatto-fadeOut{
+    from{
+        opacity: 1
+    }to{
+        opacity:0;
+    }
+}
+
+@keyframes animatto-slide-fadeIn{
+    from{
+        transform: translateX(-20%);
+        -webkit-transform: translateX(-20%);
+        -moz-transform: translateX(-20%);
+        -ms-transform: translateX(-20%);
+        -o-transform: translateX(-20%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+        opacity: 1;
+    }
+}

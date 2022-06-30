@@ -5,6 +5,10 @@
 // ANIMATION SUMMARY
 // FADEIN 
 // FADEOUT ANIMATION
+let fadeInSelectorInit =document.querySelectorAll(".animatto-fadeIn");
+let fadeOutSelectorInit = document.querySelectorAll(".animatto-fadeOut");
+let slideFadeInSelectorInit = document.querySelectorAll(".animatto-slide-fadeIn");
+let slideFadeOutSelectorInit= document.querySelectorAll(".animatto-slide-fadeOut");
 
 
 
@@ -12,11 +16,7 @@
 
 
 
-
-
-
-
-// animation timer function
+// this function will extract MILI_SECONDS in number from class name in DOM 
 let initial =document.querySelectorAll(".animatto-timing");
 let AnimattoTimer = (QueryElement) =>{
     let GET_MILI_SECONDS;
@@ -38,30 +38,31 @@ let AnimattoTimer = (QueryElement) =>{
 
 
 
-// FADEIN ANIMATION, MAKE IT INVISIBLE THEN VISIBLE, SET TRANSITION  
-// let fadeInSelectorInit =document.querySelectorAll(".animatto-fadeIn");
+// FADEIN ANIMATION related with @keyframes animation and css class
 let FadeIn =(QueryElement) =>{
     for(let counter =0; counter < QueryElement.length; counter++){
         let Selector = QueryElement[counter]; //selected all fadein elements
         window.addEventListener("load", ()=>{
-            Selector.style.opacity ="1";
+            Selector.style.animation ="animatto-fadeIn 2s linear";
         });
     }
 };
 
 
-// CSS: MAKE IT OPACITY 1, IN JAVASCRIPT MAKE MAKE IT OPACITY 0 (DOM MANIPULATIONS)
-// FADEOUT ANIMATIONS
-let fadeOutSelectorInit = document.querySelectorAll(".animatto-fadeOut");
 
+
+
+
+
+// FADEOUT ANIMATIONS related with @keyframes animation and css class
 let FadeOut = (QueryElement) =>{
     for(let counter= 0; counter <QueryElement.length; counter++){
         let Selector = QueryElement[counter];
         window.addEventListener("load", ()=>{
-            //setting the opacity to 0 which was value 1 in "animatto-fadeOut" class
-            Selector.style.opacity = "0";
+            Selector.style.animation= "animatto-fadeOut 2s ease-in";
             setTimeout(()=>{
-                Selector.style.display = "none";
+                //after the fadeout animation, the item is set to display: none;
+                Selector.classList.add("animatto-display-none");
             }, 2000); //this miliseconds is similar to the timer
         }); // FIRST SIMPLE ANIMATION UPDATE: SUCCESSFUL
     }
@@ -69,13 +70,11 @@ let FadeOut = (QueryElement) =>{
 
 
 // SLIDE FADE-IN ANIMATION
-let slideFadeInSelectorInit = document.querySelectorAll(".animatto-slide-fadeIn");
 let SlideFadeIn = (QueryElement) =>{
     for(let counter =0; counter < QueryElement.length; counter++){
         let Selector = QueryElement[counter];
         window.addEventListener("load" , ()=>{
-            Selector.style.transform = "translateX(0%)";
-            Selector.style.opacity = "1";
+            Selector.style.animation = "animatto-slide-fadeIn 400ms ease-in";
         });
     }
 };
@@ -83,17 +82,18 @@ let SlideFadeIn = (QueryElement) =>{
 
 
 // SLIDE FADE-OUT ANIMATION
-let slideFadeOutSelectorInit= document.querySelectorAll(".animatto-slide-fadeOut");
+
 
 let SlideFadeOut = (QueryElement) =>{
     for(let counter = 0; counter < QueryElement.length; counter++){
         let Selector =QueryElement[counter];
         window.addEventListener("load", ()=>{
-            Selector.style.transform= "translateX(30%)";
-            Selector.style.opacity = "0" ;
-            setTimeout(()=>{
-                Selector.style.display= " none";
-            },1000); //this will be similar to the animation timer
+            // Selector.style.transform= "translateX(30%)";
+            // Selector.style.opacity = "0" ;
+            Selector.style.animation= "animatto-fadeOut 2s ease-in";
+            //setTimeout(()=>{
+                // Selector.style.display= " none";
+            //},1000); //this will be similar to the animation timer
         });
     }
 };
@@ -106,8 +106,8 @@ let SlideFadeOut = (QueryElement) =>{
 
 
 //running the events
-let fadeInSelectorInit =document.querySelectorAll(".animatto-slide-fadeOut");
-if(fadeInSelectorInit.length > 0){
-    SlideFadeOut(fadeInSelectorInit);
+let testing =document.querySelectorAll(".animatto-slide-fadeIn");
+if(testing.length > 0){
+    SlideFadeIn(testing);
 }
 
