@@ -9,15 +9,14 @@ let fadeInSelectorInit =document.querySelectorAll(".animatto-fadeIn");
 let fadeOutSelectorInit = document.querySelectorAll(".animatto-fadeOut");
 let slideFadeInSelectorInit = document.querySelectorAll(".animatto-slide-fadeIn");
 let slideFadeOutSelectorInit= document.querySelectorAll(".animatto-slide-fadeOut");
-
-
-
-
-
-
-
-// this function will extract MILI_SECONDS in number from class name in DOM 
 let initial =document.querySelectorAll(".animatto-timing");
+
+
+
+
+
+
+// this function will extract MILI_SECONDS in number from class name in DOM
 let AnimattoTimer = (QueryElement) =>{
     let GET_MILI_SECONDS;
     for(let counter = 0; counter < QueryElement.length; counter++){
@@ -36,6 +35,21 @@ let AnimattoTimer = (QueryElement) =>{
 };
 
 
+// this function will get class  data related to the selector returns "string value" 
+let EventTypeChecker = (QueryCurrentSelector) =>{
+    let ClassData = QueryCurrentSelector.classList;
+    console.log(ClassData);
+    switch(true){
+        // Statement update: successful
+        case (ClassData.contains("Onload")):
+            return "load";
+            break;
+        default: 
+            return "load";
+        
+    }
+}
+
 
 
 // FADEIN ANIMATION related with @keyframes animation and css class
@@ -47,11 +61,6 @@ let FadeIn =(QueryElement) =>{
         });
     }
 };
-
-
-
-
-
 
 
 // FADEOUT ANIMATIONS related with @keyframes animation and css class
@@ -82,18 +91,16 @@ let SlideFadeIn = (QueryElement) =>{
 
 
 // SLIDE FADE-OUT ANIMATION
-
-
 let SlideFadeOut = (QueryElement) =>{
     for(let counter = 0; counter < QueryElement.length; counter++){
         let Selector =QueryElement[counter];
         window.addEventListener("load", ()=>{
-            // Selector.style.transform= "translateX(30%)";
-            // Selector.style.opacity = "0" ;
-            Selector.style.animation= "animatto-fadeOut 2s ease-in";
-            //setTimeout(()=>{
-                // Selector.style.display= " none";
-            //},1000); //this will be similar to the animation timer
+            Selector.style.animation= "animatto-slide-fadeOut 400ms ease-in";
+            let k =EventTypeChecker(Selector);
+            console.log(k);
+            setTimeout(()=>{
+                Selector.classList.add("animatto-display-none");
+            },400); //this will be similar to the animation timer
         });
     }
 };
@@ -106,8 +113,8 @@ let SlideFadeOut = (QueryElement) =>{
 
 
 //running the events
-let testing =document.querySelectorAll(".animatto-slide-fadeIn");
+let testing =document.querySelectorAll(".animatto-slide-fadeOut");
 if(testing.length > 0){
-    SlideFadeIn(testing);
+    SlideFadeOut(testing);
 }
 

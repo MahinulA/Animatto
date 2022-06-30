@@ -49,13 +49,13 @@
 /* ==================== */
 /* text fadein Class "slide-FadeIn" animations */
 .animatto-slide-fadeOut{
-    position: relative;
+    /* position: relative;
     opacity: 1;
     transition:all 1s;
     -webkit-transition:all 1s;
     -moz-transition:all 1s;
     -ms-transition:all 1s;
-    -o-transition:all 1s;
+    -o-transition:all 1s; */
 }
 
 
@@ -101,4 +101,22 @@
         -o-transform: translateX(0%);
         opacity: 1;
     }
+}
+
+@keyframes animatto-slide-fadeOut{
+    from{
+        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+        opacity: 1;
+}to{
+        transform: translateX(30%)    ;
+        -webkit-transform: translateX(30%)    ;
+        -moz-transform: translateX(30%)    ;
+        -ms-transform: translateX(30%)    ;
+        -o-transform: translateX(30%)    ;
+        opacity: 0;
+}
 }
