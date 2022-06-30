@@ -1,5 +1,7 @@
 /* fade in animation class : "animatto-fadeIn" */
-
+/* fade out animation class : "animatto-fadeOut" */
+/* slide fade in animation class : "animatto-slide-fadeIn" */
+/* slide fade out animation class : "animatto-slide-fadeOut" */
 
 
 *{
@@ -23,45 +25,6 @@
 .animatto-fadeOut{
     opacity: 0;
 }
-
-
-/* ==================== */
-/* text fadein Class "slide-FadeIn" animations */
-.animatto-slide-fadeIn{
-    /* position: relative;
-    opacity: 0;
-    transition: all 1s;
-    -webkit-transition: all 1s;
-    -moz-transition: all 1s;
-    -ms-transition: all 1s;
-    -o-transition: all 1s;
-
-    transform: translateX(-20%);
-    -webkit-transform: translateX(-20%);
-    -moz-transform: translateX(-20%);
-    -ms-transform: translateX(-20%);
-    -o-transform: translateX(-20%); */
-}
-
-
-
-
-/* ==================== */
-/* text fadein Class "slide-FadeIn" animations */
-.animatto-slide-fadeOut{
-    /* position: relative;
-    opacity: 1;
-    transition:all 1s;
-    -webkit-transition:all 1s;
-    -moz-transition:all 1s;
-    -ms-transition:all 1s;
-    -o-transition:all 1s; */
-}
-
-
-
-
-
 
 
 
