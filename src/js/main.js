@@ -1,6 +1,6 @@
+/* jshint esversion: 6 */
 import {AnimattoTimer} from "./modules/AnimationTimer.js";
 import {Animation_Category} from "./modules/AnimationCategory.js";
-/* jshint esversion: 6 */
 "use strict";
 
 
@@ -27,7 +27,6 @@ const EventTypeChecker = (QueryCurrentSelector) =>{
             // break;
         default: 
             return "load";
-        
     }
 }
 
@@ -55,5 +54,16 @@ const RunEvents = (Selector, AnimationFunction)=>{
 }
 
 
-// decide what animation to run on what animation
-RunEvents(".animatto-fadeOut", Animation_Category.FadeOut);
+// decide what animation to run on what animation\
+const AnimationRunEvent =[
+    {Run_AnimationClass: ".animatto-fadeOut", Run_AnimationFunction: Animation_Category.FadeOut}, 
+    {Run_AnimationClass: ".animatto-fadeIn", Run_AnimationFunction: Animation_Category.FadeIn},
+    {Run_AnimationClass: ".animatto-slide-fadeIn", Run_AnimationFunction: Animation_Category.SlideFadeIn},
+    {Run_AnimationClass: ".animatto-slide-fadeOut", Run_AnimationFunction: Animation_Category.SlideFadeOut},
+    {Run_AnimationClass: ".aanimatto-fadeUp-One", Run_AnimationFunction: Animation_Category.FadeUpOne},
+    {Run_AnimationClass: ".aanimatto-fadeUp-Two", Run_AnimationFunction: Animation_Category.FadeUpTwo}
+];
+// RunEvents(".animatto-fadeOut", Animation_Category.FadeOut);
+AnimationRunEvent.map((el)=>{
+    RunEvents(el.Run_AnimationClass, el.Run_AnimationFunction);
+});
