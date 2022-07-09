@@ -2,53 +2,70 @@
 /* fade out animation class : "animatto-fadeOut" */
 /* slide fade in animation class : "animatto-slide-fadeIn" */
 /* slide fade out animation class : "animatto-slide-fadeOut" */
+/* animation fadeUp one : "animatto-fadeUp-One */
+/* animation fadeUp one : "animatto-fadeUp-Two */
 /* animation timing class : "animatto-timing" */
 
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 /* some reuseable toggle classes for javascript DOM manipulation */
-.animatto-display-none{
+.animatto-display-none {
     display: none;
 }
-.animatto-display-block{
-    display:block;
+
+.animatto-display-block {
+    display: block;
 }
 
 
 
 /* ==================== */
 /* text fadein Class "fadeOut" animations */
-.animatto-fadeOut{
+.animatto-fadeOut {
     opacity: 0;
+}
+
+/* fadeUp two animation needs a container to achieve its effect */
+.animatto-fadeUp-two-container {
+    overflow-y: hidden;
 }
 
 
 
 
 
-@keyframes animatto-fadeIn{
-    from{
+
+
+
+
+
+
+@keyframes animatto-fadeIn {
+    from {
         opacity: 0;
     }
-    to{
+
+    to {
         opacity: 1;
     }
 }
 
-@keyframes animatto-fadeOut{
-    from{
+@keyframes animatto-fadeOut {
+    from {
         opacity: 1
-    }to{
-        opacity:0;
+    }
+
+    to {
+        opacity: 0;
     }
 }
 
-@keyframes animatto-slide-fadeIn{
-    from{
+@keyframes animatto-slide-fadeIn {
+    from {
         transform: translateX(-20%);
         -webkit-transform: translateX(-20%);
         -moz-transform: translateX(-20%);
@@ -56,7 +73,8 @@
         -o-transform: translateX(-20%);
         opacity: 0;
     }
-    to{
+
+    to {
         transform: translateX(0%);
         -webkit-transform: translateX(0%);
         -moz-transform: translateX(0%);
@@ -66,20 +84,61 @@
     }
 }
 
-@keyframes animatto-slide-fadeOut{
-    from{
+@keyframes animatto-slide-fadeOut {
+    from {
         transform: translateX(0%);
         -webkit-transform: translateX(0%);
         -moz-transform: translateX(0%);
         -ms-transform: translateX(0%);
         -o-transform: translateX(0%);
         opacity: 1;
-}to{
-        transform: translateX(30%)    ;
-        -webkit-transform: translateX(30%)    ;
-        -moz-transform: translateX(30%)    ;
-        -ms-transform: translateX(30%)    ;
-        -o-transform: translateX(30%)    ;
+    }
+
+    to {
+        transform: translateX(30%);
+        -webkit-transform: translateX(30%);
+        -moz-transform: translateX(30%);
+        -ms-transform: translateX(30%);
+        -o-transform: translateX(30%);
         opacity: 0;
+    }
 }
+
+@keyframes animatto-fadeUp-One {
+    from {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-30%);
+        -webkit-transform: translateY(-30%);
+        -moz-transform: translateY(-30%);
+        -ms-transform: translateY(-30%);
+        -o-transform: translateY(-30%);
+        opacity: 0;
+    }
+}
+
+@keyframes animatto-fadeUp-two {
+    from {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+
+    }
+
+    to {
+        transform: translateY(-80%);
+        -webkit-transform: translateY(-80%);
+        -moz-transform: translateY(-80%);
+        -ms-transform: translateY(-80%);
+        -o-transform: translateY(-80%);
+    }
 }
