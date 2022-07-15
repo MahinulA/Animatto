@@ -1,14 +1,15 @@
 /* jshint esversion: 6 */
-import {AnimattoTimer} from "./modules/AnimationTimer.js";
-import {Animation_Category} from "./modules/AnimationCategory.js";
+// import {AnimattoTimer} from "./modules/AnimationTimer.js";
+import {Animation_Category, Nulyfy_Animation} from "./modules/AnimationCategory.js";
+import {Animation_timing_function} from "./modules/animation_timing_functions.js";
 "use strict";
 
 
-let fadeInSelectorInit =document.querySelectorAll(".animatto-fadeIn");
-let fadeOutSelectorInit = document.querySelectorAll(".animatto-fadeOut");
-let slideFadeInSelectorInit = document.querySelectorAll(".animatto-slide-fadeIn");
-let slideFadeOutSelectorInit= document.querySelectorAll(".animatto-slide-fadeOut");
-let initial = document.querySelectorAll(".animatto-timing");
+//take classlist
+let check_if_class_has_timingFunction = document.querySelectorAll(".animatto-timing");//this should be animation timing
+
+// Animation_timing_function(classcheckMY_test);
+// console.log(Animation_timing_function(classcheckMY_test).animation_timing);
 
 
 
@@ -33,22 +34,26 @@ const EventTypeChecker = (QueryCurrentSelector) =>{
 
 const RunEvents = (Selector, AnimationFunction)=>{
     let QuerySelector =document.querySelectorAll(Selector); // the Selector value should be a query Class selector example ".animatto-slide-fadeOut"
-    console.log(QuerySelector);
+    // console.log(QuerySelector);
     for(let counter= 0; counter <QuerySelector.length; counter++){
         let ElementSelector = QuerySelector[counter];
-        //event type checker
-        let EventType = EventTypeChecker(ElementSelector);
+        
+        let EventType = EventTypeChecker(ElementSelector);//check the event type
 
         switch (true){
             case EventType == "load":
                 window.addEventListener(EventType, ()=>{
-                    AnimationFunction(ElementSelector, AnimattoTimer(ElementSelector));
+                    AnimationFunction(ElementSelector, Animation_timing_function(ElementSelector).animation_duration, Animation_timing_function(ElementSelector).animation_timing);
                 });
                 break;
-            case EventType == "hover":
-                ElementSelector.addEventListener("mouseover", ()=>{
-                    AnimationFunction(ElementSelector, AnimattoTimer(ElementSelector));
-                });
+            // case EventType == "hover":
+            //     ElementSelector.addEventListener("mouseover", ()=>{
+            //         AnimationFunction(ElementSelector, AnimattoTimer(ElementSelector));
+            //         setTimeout(()=>{
+            //             Nulyfy_Animation.NullifyAninmationFunc(ElementSelector);
+            //         }, AnimattoTimer(ElementSelector));
+            //     });
+                
         }
     }
 }
@@ -61,9 +66,13 @@ const AnimationRunEvent =[
     {Run_AnimationClass: ".animatto-slide-fadeIn", Run_AnimationFunction: Animation_Category.SlideFadeIn},
     {Run_AnimationClass: ".animatto-slide-fadeOut", Run_AnimationFunction: Animation_Category.SlideFadeOut},
     {Run_AnimationClass: ".aanimatto-fadeUp-One", Run_AnimationFunction: Animation_Category.FadeUpOne},
-    {Run_AnimationClass: ".aanimatto-fadeUp-Two", Run_AnimationFunction: Animation_Category.FadeUpTwo}
+    {Run_AnimationClass: ".animatto-fadeUp-Two", Run_AnimationFunction: Animation_Category.FadeUpTwo},
+    {Run_AnimationClass: ".animatto-fadeIn-Bounce-one", Run_AnimationFunction: Animation_Category.FadeInBounceOne},
 ];
 // RunEvents(".animatto-fadeOut", Animation_Category.FadeOut);
-AnimationRunEvent.map((el)=>{
-    RunEvents(el.Run_AnimationClass, el.Run_AnimationFunction);
+AnimationRunEvent.map((ArrayElements)=>{
+    RunEvents(ArrayElements.Run_AnimationClass, ArrayElements.Run_AnimationFunction);
 });
+
+
+
