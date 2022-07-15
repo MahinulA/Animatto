@@ -37,3 +37,11 @@ Name of the Library : < Animatto.js >
     => load (className: Onload)
     => load (className: Onload)
     => load (className: Onload)
+
+
+
+
+## Javascript timing Class name
+    => First we look for "animatto-timing"
+    => class for animation timing function is - "animatto-f-t-"
+    => class for animation duration "animatto-duration"
