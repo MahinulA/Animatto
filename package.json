@@ -1,0 +1,31 @@
+{
+  "name": "animatto",
+  "version": "1.0.0",
+  "description": "Animatto is a flexible animation library built with CSS and JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MahinulA/Animation_libarary.git"
+  },
+  "keywords": [
+    "animatto",
+    "animation",
+    "library",
+    "animation",
+    "CSS",
+    "library",
+    "css",
+    "library",
+    "javascript",
+    "library"
+  ],
+  "author": "Animatto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MahinulA/Animation_libarary/issues"
+  },
+  "homepage": "https://github.com/MahinulA/Animation_libarary#readme"
+}
